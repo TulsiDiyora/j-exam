@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    </head>
+    <body>
+        <div class="cursor"></div>
+        <div class="cursor2"></div>
+
+        <section class="py-100">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                    <div class="box1" style=" background-color: #EBDEF0;">
+                        slide-1
+                    </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="box2" style=" background-color: #D7BDE2;">
+                    slide-2
+                </div>
+              </div>
+              <div class="swiper-slide" >
+                <div class="box2" style=" background-color: #D7BDE2 ;">
+                    slide-2
+                </div>
+                </div>
+              <div class="swiper-slide">
+                <div class="box2" style=" background-color: #C39BD3;">
+                    slide-3
+                </div>
+                </div>
+              <div class="swiper-slide" >
+                <div class="box2" style=" background-color: #D2B4DE ;">
+                    slide-4
+                </div>
+                </div>
+              <div class="swiper-slide" >
+                <div class="box2" style=" background-color: #D2B4DE ;">
+                    slide-5
+                </div>
+                </div>
+              <div class="swiper-slide" >
+                <div class="box2" style=" background-color: #BB8FCE ;">
+                    slide-6
+                </div>
+                </div>
+              <div class="swiper-slide" >
+                <div class="box2" style=" background-color: #AF7AC5 ;">
+                    slide-7
+                </div>
+                </div>
+            </div>
+          
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          
+        </div>
+        </section>
+        <section class="py-100">
+                <ul style="background-color:aliceblue; padding: 35px 35px;">
+                    <li class="sidebar-dropdown active">
+                      <a href="javascript:void(0);" style="text-decoration: none; color: red;">
+                        <span>When was the political party established?</span>
+                      </a>
+                      <div class="sidebar-submenu active">
+                        <ul style="list-style: none;"  >
+                          <li class="active">
+                              <a href="#" style="text-decoration: none; color: lightcoral;" >
+                                <span>Our political party was established on July 15, 2004, marking a significant moment in the realm of political evolution. Born out of a collective vision for transformative governance and social justice, the party emerged as a beacon of change. Grounded in its foundational principles, the political party embarked on a journey to redefine the political landscape.</span>
+                              </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="sidebar-dropdown">
+                      <a href="javascript:void(0);" style="text-decoration: none; color: red;" >
+                        <span>When was the political party established?</span>
+                      </a>
+                      <div class="sidebar-submenu">
+                        <ul style="list-style: none;">
+                          <li>
+                              <a href="#" style="text-decoration: none; color: lightcoral;">
+                                <span>Our political party was established on July 15, 2004, marking a significant moment in the realm of political evolution.Born out of a collective vision for transformative governance and social justice, the party emerged as a beacon of change. Grounded in its foundational principles, the political party embarked on a journey to redefine the political landscape.</span>
+                              </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="sidebar-dropdown">
+                      <a href="javascript:void(0);"  style="text-decoration: none; color: red;">
+                        <span>When was the political party established?</span>
+                      </a>
+                      <div class="sidebar-submenu">
+                        <ul style="list-style: none;">
+                          <li>
+                              <a href="#" style="text-decoration: none; color: lightcoral;">
+                                <span>Our political party was established on July 15, 2004, marking a significant moment in the realm of political evolution. Born out of a collective vision for transformative governance and social justice, the party emerged as a beacon of change. Grounded in its foundational principles, the political party embarked on a journey to redefine the political landscape.</span>
+                              </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                </ul>
+          </section>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/swiper-bundle.min.js"></script>
+        <script>
+
+                var cursor = document.querySelector('.cursor');
+                var cursorinner = document.querySelector('.cursor2');
+                var a = document.querySelectorAll('a');
+
+                document.addEventListener('mousemove', function(e){
+                var x = e.clientX;
+                var y = e.clientY;
+                cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
+                });
+
+                document.addEventListener('mousemove', function(e){
+                var x = e.clientX;
+                var y = e.clientY;
+                cursorinner.style.left = x + 'px';
+                cursorinner.style.top = y + 'px';
+                });
+
+                document.addEventListener('mousedown', function(){
+                cursor.classList.add('click');
+                cursorinner.classList.add('cursorinnerhover')
+                });
+
+                document.addEventListener('mouseup', function(){
+                cursor.classList.remove('click')
+                cursorinner.classList.remove('cursorinnerhover')
+                });
+
+                a.forEach(item => {
+                item.addEventListener('mouseover', () => {
+                    cursor.classList.add('hover');
+                });
+                item.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('hover');
+                });
+                });
+        </script>
+        <script>
+        const swiper = new Swiper('.swiper', {
+        loop: true,
+        centeredSlides: true,
+        slidesPerView: 4,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        });
+        </script>
+        <script>
+            $(".sidebar-dropdown > a").click(function () {
+            $(".sidebar-submenu").slideUp(200);
+            if ($(this).parent().hasClass("active")) {
+                $(".sidebar-dropdown").removeClass("active");
+                $(this).parent().removeClass("active");
+            } else {
+                $(".sidebar-dropdown").removeClass("active");
+                $(this).next(".sidebar-submenu").slideDown(200);
+                $(this).parent().addClass("active");
+            }
+            });
+        </script>
+    </body>
+</html>
